@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precision Wellness Self Assessment — Living Light Reset</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --coral:     #E2725B;
+    --coral-dk:  #cb5e48;
+    --teal:      #1F5A82;
+    --dark-teal: #1E3A4C;
+    --sage:      #9CAF88;
+    --beige:     #E2D2C3;
+    --cream:     #F5EBE0;
+    --body:      #424A54;
+    --muted:     #7a858e;
+    --white:     #ffffff;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* BASE */
+  body {
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    background: #ffffff !important;
+    color: var(--body);
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 48px 20px 80px !important;
+  }
+  p { margin-bottom: 1.23em; }
+  p:last-child { margin-bottom: 0; }
+  a { color: var(--sage); text-decoration: underline; }
+  a:hover { color: var(--coral); }
+
+  /* HEADINGS */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Marcellus', serif;
+    font-weight: 400;
+    color: var(--teal);
+    line-height: 1.2;
+  }
+  h1 { font-size: 48px; }
+  h2 { font-size: 38px; }
+  h3 { font-size: 30px; }
+  h4 { font-size: 24px; }
+  h5 { font-size: 21px; }
+  h6 { font-size: 17px; }
+
+  .wrap { width: 100%; max-width: 700px; }
+
+  /* ── HEADER ── */
+  .quiz-header { text-align: center; margin-bottom: 40px; }
+  .quiz-header h1 { margin-bottom: 10px; }
+  .quiz-header .tagline {
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .intro-box {
+    background: var(--cream);
+    border: 1px solid var(--beige);
+    border-radius: 10px;
+    padding: 26px 30px;
+    text-align: left;
+    margin-bottom: 22px;
+  }
+  .intro-box p { font-size: 16px; }
+  .intro-box strong { color: var(--dark-teal); }
+  .intro-box .intro-cta {
+    font-family: 'Marcellus', serif;
+    font-size: 17px;
+    color: var(--teal);
+    font-style: normal;
+    margin-bottom: 0;
+  }
+  .intro-note {
+    font-family: 'Marcellus', serif;
+    font-size: 15px;
+    color: var(--teal);
+    font-style: italic;
+  }
+
+  /* ── PROGRESS ── */
+  .progress-wrap { margin-bottom: 26px; }
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Marcellus', serif;
+    font-size: 14px;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .progress-bar { height: 4px; background: var(--beige); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--coral); border-radius: 2px; transition: width 0.4s ease; }
+
+  /* ── LEVER BANNER ── */
+  .lever-banner {
+    background: var(--dark-teal);
+    border-radius: 10px;
+    padding: 16px 24px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .lb-left { flex-shrink: 0; }
+  .lb-num {
+    font-family: 'Marcellus', serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 3px;
+  }
+  .lb-title {
+    font-family: 'Marcellus', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .lb-div { width: 1px; background: rgba(255,255,255,0.15); align-self: stretch; }
+  .lb-right {
+    font-family: 'PT Serif', serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'Marcellus', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+
+  /* ── QUESTION CARD ── */
+  .q-card {
+    background: var(--cream);
+    border: 1px solid var(--beige);
+    border-radius: 10px;
+    padding: 28px 30px;
+    margin-bottom: 14px;
+  }
+  .q-card.hook { border-color: var(--coral); border-width: 1.5px; }
+  .q-num {
+    font-family: 'Marcellus', serif;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .q-text {
+    font-family: 'Marcellus', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--teal);
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .q-sub {
+    font-family: 'PT Serif', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 22px;
+    line-height: 1.6;
+  }
+
+  /* ── OPTIONS (hook) ── */
+  .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 4px; }
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 13px 17px;
+    border: 1.5px solid var(--beige);
+    border-radius: 8px;
+    cursor: pointer;
+    background: var(--white);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .option:hover { border-color: var(--teal); background: #f0f6fb; }
+  .option.selected { border-color: var(--coral); background: #fdf3f1; }
+  .opt-radio {
+    width: 19px; height: 19px;
+    border: 2px solid var(--beige);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .option.selected .opt-radio {
+    border-color: var(--coral);
+    background: var(--coral);
+    box-shadow: inset 0 0 0 3px var(--white);
+  }
+  .opt-content { flex: 1; }
+  .opt-text {
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  .opt-tag {
+    display: inline-block;
+    font-family: 'Marcellus', serif;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding: 2px 9px;
+    border-radius: 20px;
+    background: #FAECE7;
+    color: #993C1D;
+    margin-top: 5px;
+  }
+
+  /* ── SLIDER ── */
+  .slider-wrap { margin-top: 6px; }
+  .slider-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .slider-col {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 12px 14px;
+    border: 1px solid var(--beige);
+  }
+  .slider-col-title {
+    font-family: 'Marcellus', serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .slider-col-title.red   { color: #A32D2D; }
+  .slider-col-title.yellow{ color: #633806; }
+  .slider-col-title.green { color: #27500A; }
+  .slider-col p {
+    font-family: 'PT Serif', serif;
+    font-size: 13px;
+    color: var(--body);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 12px;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--coral);
+    border: 3px solid var(--white);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+  .slider-value-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .slider-value-display {
+    font-family: 'Marcellus', serif;
+    font-size: 30px;
+    color: var(--teal);
+  }
+  .slider-badge {
+    font-family: 'Marcellus', serif;
+    font-size: 13px;
+    padding: 4px 13px;
+    border-radius: 20px;
+  }
+  .badge-red    { background: #FCEBEB; color: #A32D2D; }
+  .badge-yellow { background: #FAEEDA; color: #633806; }
+  .badge-green  { background: #EAF3DE; color: #27500A; }
+  .badge-none   { background: var(--beige); color: var(--muted); }
+
+  /* ── NAV ── */
+  .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+  .btn {
+    font-family: 'Marcellus', serif;
+    font-size: 17px;
+    padding: 14px 34px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .btn-primary { background: var(--coral); color: var(--white); }
+  .btn-primary:hover { background: var(--coral-dk); }
+  .btn-primary:disabled { background: var(--beige); color: #bbb; cursor: not-allowed; }
+  .btn-ghost { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+  .btn-ghost:hover { background: var(--teal); color: var(--white); }
+
+  /* ── GATE ── */
+  .gate-card {
+    background: var(--dark-teal);
+    border-radius: 12px;
+    padding: 48px 42px;
+    text-align: center;
+    color: var(--white);
+  }
+  .gate-card h2 {
+    font-family: 'Marcellus', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .gate-card > p {
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin-bottom: 30px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .gate-form { display: flex; flex-direction: column; gap: 12px; max-width: 440px; margin: 0 auto; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gate-form input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 6px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.2s;
+  }
+  .gate-form input::placeholder { color: rgba(255,255,255,0.4); }
+  .gate-form input:focus { border-color: var(--coral); }
+  .phone-row { display: flex; gap: 8px; }
+  .phone-row select {
+    padding: 14px 10px;
+    border-radius: 6px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    font-family: 'PT Serif', serif;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+  .phone-row select option { background: var(--dark-teal); color: var(--white); }
+  .phone-row input { flex: 1; }
+  .gate-form .btn-primary { width: 100%; padding: 16px; font-size: 17px; margin-top: 4px; }
+  .gate-disclaimer { font-size: 13px; opacity: 0.4; margin-top: 14px; font-style: italic; }
+  .err { font-size: 14px; color: #f4a29a; margin-top: 6px; }
+
+  /* ── RESULTS ── */
+  .results-header { text-align: center; margin-bottom: 32px; }
+  .results-header h2 { margin-bottom: 10px; }
+  .score-circle-wrap { display: flex; justify-content: center; margin: 22px 0; }
+  .score-circle {
+    width: 168px; height: 168px;
+    border-radius: 50%;
+    border: 4px solid var(--teal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+  }
+  .sc-label {
+    font-family: 'Marcellus', serif;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+  .sc-num { font-family: 'Marcellus', serif; font-size: 52px; color: var(--coral); line-height: 1; }
+  .sc-denom { font-family: 'Marcellus', serif; font-size: 17px; color: var(--muted); }
+  .score-tag {
+    display: inline-block;
+    font-family: 'Marcellus', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .tag-red    { background: #FCEBEB; color: #A32D2D; }
+  .tag-yellow { background: #FAEEDA; color: #633806; }
+  .tag-green  { background: #EAF3DE; color: #27500A; }
+  .score-message {
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.65;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ── LEVER RESULTS ── */
+  .lever-result-card {
+    background: var(--cream);
+    border: 1px solid var(--beige);
+    border-radius: 10px;
+    padding: 26px 28px;
+    margin-bottom: 14px;
+  }
+  .lr-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+  .lr-title {
+    font-family: 'Marcellus', serif;
+    font-size: 21px;
+    color: var(--teal);
+    line-height: 1.2;
+  }
+  .lr-shift {
+    font-family: 'PT Serif', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .lr-score { font-family: 'Marcellus', serif; font-size: 24px; color: var(--coral); text-align: right; }
+  .lr-bar { height: 8px; background: var(--beige); border-radius: 4px; overflow: hidden; margin-bottom: 16px; }
+  .lr-fill { height: 100%; border-radius: 4px; transition: width 0.9s ease; }
+  .fill-red    { background: #E24B4A; }
+  .fill-yellow { background: #EF9F27; }
+  .fill-green  { background: #639922; }
+  .sub-scores { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+  .sub-score-item {
+    background: var(--white);
+    border: 1px solid var(--beige);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .sub-score-name {
+    font-family: 'Marcellus', serif;
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .sub-score-val { font-family: 'Marcellus', serif; font-size: 24px; color: var(--coral); line-height: 1; }
+  .sub-score-denom { font-family: 'PT Serif', serif; font-size: 13px; color: var(--muted); }
+  .lr-insight {
+    font-family: 'PT Serif', serif;
+    font-size: 15px;
+    color: var(--body);
+    font-style: italic;
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: var(--dark-teal);
+    border-radius: 10px;
+    padding: 40px 34px;
+    text-align: center;
+    color: var(--white);
+    margin-top: 10px;
+  }
+  .cta-eyebrow {
+    font-family: 'Marcellus', serif;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 14px;
+  }
+  .cta-block h2 {
+    font-family: 'Marcellus', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+  .cta-block p {
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    line-height: 1.75;
+    opacity: 0.85;
+    margin-bottom: 22px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-discount {
+    display: inline-block;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(226,114,91,0.45);
+    border-radius: 8px;
+    padding: 14px 24px;
+    margin-bottom: 24px;
+  }
+  .price-line {
+    font-family: 'PT Serif', serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+  }
+  .price-line s { margin-right: 6px; }
+  .price-line strong { color: var(--white); }
+  .code-line {
+    font-family: 'Marcellus', serif;
+    font-size: 17px;
+    color: var(--coral);
+    letter-spacing: 0.5px;
+  }
+  .code-pill {
+    background: rgba(226,114,91,0.25);
+    border: 1px solid rgba(226,114,91,0.5);
+    padding: 2px 10px;
+    border-radius: 4px;
+    letter-spacing: 2px;
+  }
+  .btn-cta {
+    display: inline-block;
+    background: var(--coral);
+    color: var(--white);
+    font-family: 'Marcellus', serif;
+    font-size: 17px;
+    padding: 17px 48px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-cta:hover { background: var(--coral-dk); color: var(--white); }
+  .cta-reassurance {
+    font-family: 'PT Serif', serif;
+    font-size: 13px;
+    opacity: 0.4;
+    margin-top: 18px;
+    font-style: italic;
+  }
+
+  .hidden { display: none !important; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 580px) {
+    h1 { font-size: 34px; }
+    h2 { font-size: 28px; }
+    .q-text { font-size: 21px; }
+    .q-card, .gate-card, .lever-result-card, .cta-block { padding: 20px 18px; }
+    .form-row, .slider-cols, .sub-scores { grid-template-columns: 1fr; }
+    .lever-banner { flex-direction: column; gap: 8px; }
+    .lb-div { display: none; }
+    .score-circle { width: 140px; height: 140px; }
+    .sc-num { font-size: 42px; }
+    .phone-row { flex-direction: column; }
+    .phone-row select { min-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="quiz-header" id="quiz-header">
+    <h1>The Precision Wellness<br>Self Assessment</h1>
+    <p class="tagline">A guided self-diagnosis for midlife metabolism</p>
+    <div class="intro-box">
+      <p>Still not seeing results despite trying everything? Your body isn&rsquo;t broken &mdash; it&rsquo;s protecting you. Chronic stress, trauma, and years of overgiving can push your nervous system into <strong>Survival Mode</strong>, where it holds onto weight, energy, and tension as a shield.</p>
+      <p class="intro-cta">Score each section 1&ndash;10. No wrong answers &mdash; only data.</p>
+    </div>
+    <p class="intro-note">9 sections &nbsp;&middot;&nbsp; Score out of 90 &nbsp;&middot;&nbsp; Personalised results</p>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap hidden" id="progress-wrap">
+    <div class="progress-meta">
+      <span id="progress-text">Opening question</span>
+      <span id="progress-pct">0%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz-section">
+
+    <!-- STEP 0: Hook -->
+    <div class="section-label" id="lbl-hook">The weight question</div>
+    <div class="q-card hook" id="step-0">
+      <div class="q-num">Opening question &nbsp;&middot;&nbsp; No score &mdash; qualitative signal</div>
+      <div class="q-text">Do you carry extra weight &mdash; and if so, where does it tend to sit?</div>
+      <div class="q-sub">This tells us which biological pattern your body is expressing right now.</div>
+      <div class="options">
+        <div class="option" data-value="belly"><div class="opt-radio"></div><div class="opt-content"><div class="opt-text">Mostly around the belly and waist &mdash; it won&rsquo;t move no matter what I do</div><span class="opt-tag">cortisol / Survival Mode</span></div></div>
+        <div class="option" data-value="hips"><div class="opt-radio"></div><div class="opt-content"><div class="opt-text">Hips, thighs, and lower body &mdash; more than before 40</div><span class="opt-tag">hormonal shift</span></div></div>
+        <div class="option" data-value="even"><div class="opt-radio"></div><div class="opt-content"><div class="opt-text">Spread evenly &mdash; I just feel generally heavier and puffy</div><span class="opt-tag">inflammation / fluid</span></div></div>
+        <div class="option" data-value="none"><div class="opt-radio"></div><div class="opt-content"><div class="opt-text">I don&rsquo;t carry extra weight but I feel different in my body</div><span class="opt-tag">body composition</span></div></div>
+      </div>
+    </div>
+
+    <!-- LEVER 1 BANNER -->
+    <div class="lever-banner hidden" id="banner-l1">
+      <div class="lb-left">
+        <div class="lb-num">Lever 1</div>
+        <div class="lb-title">Identity</div>
+      </div>
+      <div class="lb-div"></div>
+      <div class="lb-right">Shifting from Trapped &rarr; Self-Expressed<br>Mindset, community, and data that drives your biology.</div>
+    </div>
+
+    <!-- S1 -->
+    <div class="q-card hidden" id="step-2">
+      <div class="q-num">Section 1 of 9</div>
+      <div class="q-text">Self-Image</div>
+      <div class="q-sub">How strongly you identify as a healthy, capable person and live in alignment with that identity.</div>
+      <div class="slider-wrap">
+        <div class="slider-cols">
+          <div class="slider-col"><div class="slider-col-title red">Red (1&ndash;3)</div><p>You don&rsquo;t fully see yourself as a healthy person, and your actions reinforce that disconnect.</p></div>
+          <div class="slider-col"><div class="slider-col-title yellow">Yellow (4&ndash;6)</div><p>You believe health is possible, but old patterns or self-doubt still influence behaviour.</p></div>
+          <div class="slider-col"><div class="slider-col-title green">Green (7&ndash;10)</div><p>You identify as a healthy, capable person and act accordingly.</p></div>
+        </div>
+        <input type="range" min="1" max="10" value="5" id="s1">
+        <div class="slider-value-row"><div class="slider-value-display" id="sv1">5</div><div class="slider-badge badge-yellow" id="sb1">In Transition</div></div>
+      </div>
+    </div>
+
+    <!-- S2 -->
+    <div class="q-card hidden" id="step-3">
+      <div class="q-num">Section 2 of 9</div>
+      <div class="q-text">Values-Aligned Community</div>
+      <div class="q-sub">How supported and reinforced you feel by the people and environments around you.</div>
+      <div class="slider-wrap">
+        <div class="slider-cols">
+          <div class="slider-col"><div class="slider-col-title red">Red (1&ndash;3)</div><p>You feel mostly unsupported or isolated. Those around you don&rsquo;t reinforce your values around wellness or self-care.</p></div>
+          <div class="slider-col"><div class="slider-col-title yellow">Yellow (4&ndash;6)</div><p>You have some support, but it&rsquo;s inconsistent &mdash; encouragement comes and goes.</p></div>
+          <div class="slider-col"><div class="slider-col-title green">Green (7&ndash;10)</div><p>You&rsquo;re surrounded by people who support your health goals and reinforce positive habits consistently.</p></div>
+        </div>
+        <input type="range" min="1" max="10" value="5" id="s2">
+        <div class="slider-value-row"><div class="slider-value-display" id="sv2">5</div><div class="slider-badge badge-yellow" id="sb2">In Transition</div></div>
+      </div>
+    </div>
+
+    <!-- S3 -->
+    <div class="q-card hidden" id="step-4">
+      <div class="q-num">Section 3 of 9</div>
+      <div class="q-text">Precision Testing &amp; Assessment</div>
+      <div class="q-sub">How clearly you understand your body&rsquo;s unique needs through personalised testing and objective feedback.</div>
+      <div class="slider-wrap">
+        <div class="slider-cols">
+          <div class="slider-col"><div class="slider-col-title red">Red (1&ndash;3)</div><p>You rely on generalised advice or trial-and-error with little personalised data.</p></div>
+          <div class="slider-col"><div class="slider-col-title yellow">Yellow (4&ndash;6)</div><p>You&rsquo;ve explored some testing, but the data isn&rsquo;t fully integrated into your decisions.</p></div>
+          <div class="slider-col"><div class="slider-col-title green">Green (7&ndash;10)</div><p>You use personalised data &mdash; genomics, food inflammation testing, wearables &mdash; to make confident health decisions.</p></div>
+        </div>
+        <input type="range" min="1" max="10" value="5" id="s3">
+        <div class="slider-value-row"><div class="slider-value-display" id="sv3">5</div><div class="slider-badge badge-yellow" id="sb3">In Transition</div></div>
+      </div>
+    </div>
+
+    <!-- LEVER 2 BANNER -->
+    <div class="lever-banner hidden" id="banner-l2">
+      <div class="lb-left">
+        <div class="lb-num">Lever 2</div>
+        <div class="lb-title">Fuel &amp; Consumption</div>
+      </div>
+      <div class="lb-div"></div>
+      <div class="lb-right">Shifting from Unhealthy &rarr; Healthy<br>The food, light, and environment you consume daily.</div>
+    </div>
+
+    <!-- S4 -->
+    <div class="q-card hidden" id="step-6">
+      <div class="q-num">Section 4 of 9</div>
+      <div class="q-text">Nourishment</div>
+      <div class="q-sub">How well your food and hydration choices support steady energy, mental clarity, and physical recovery.</div>
+      <div class="slider-wrap">
+        <div class="slider-cols">
+          <div class="slider-col"><div class="slider-col-title red">Red (1&ndash;3)</div><p>Food and hydration leave you tired, bloated, or craving more. Energy depends on stimulants.</p></div>
+          <div class="slider-col"><div class="slider-col-title yellow">Yellow (4&ndash;6)</div><p>You make healthy choices sometimes, but stress or convenience leads to inconsistency.</p></div>
+          <div class="slider-col"><div class="slider-col-title green">Green (7&ndash;10)</div><p>Your meals reliably support steady energy, clear thinking, and recovery.</p></div>
+        </div>
+        <input type="range" min="1" max="10" value="5" id="s4">
+        <div class="slider-value-row"><div class="slider-value-display" id="sv4">5</div><div class="slider-badge badge-yellow" id="sb4">In Transition</div></div>
+      </div>
+    </div>
+
+    <!-- S5 -->
+    <div class="q-card hidden" id="step-7">
+      <div class="q-num">Section 5 of 9</div>
+      <div class="q-text">Nervous System Regulation</div>
+      <div class="q-sub">How well you protect your nervous system from chronic stress, toxic media, and environmental overload.</div>
+      <div class="slider-wrap">
+        <div class="slider-cols">
+          <div class="slider-col"><div class="slider-col-title red">Red (1&ndash;3)</div><p>Your system feels constantly &ldquo;on.&rdquo; Screen overload is common and it&rsquo;s hard to fully relax.</p></div>
+          <div class="slider-col"><div class="slider-col-title yellow">Yellow (4&ndash;6)</div><p>You&rsquo;re aware of your stress and try to manage it, but busy days still impact your energy and sleep.</p></div>
+          <div class="slider-col"><div class="slider-col-title green">Green (7&ndash;10)</div><p>You intentionally protect your nervous system with calming routines, healthy boundaries, and supportive environments.</p></div>
+        </div>
+        <input type="range" min="1" max="10" value="5" id="s5">
+        <div class="slider-value-row"><div class="slider-value-display" id="sv5">5</div><div class="slider-badge badge-yellow" id="sb5">In Transition</div></div>
+      </div>
+    </div>
+
+    <!-- S6 -->
+    <div class="q-card hidden" id="step-8">
+      <div class="q-num">Section 6 of 9</div>
+      <div class="q-text">Rhythm &amp; Timing</div>
+      <div class="q-sub">How aligned your eating, sleeping, and recovery rhythms are with your hormones, digestion, and circadian biology.</div>
+      <div class="slider-wrap">
+        <div class="slider-cols">
+          <div class="slider-col"><div class="slider-col-title red">Red (1&ndash;3)</div><p>Meals, sleep, and recovery are irregular. Your schedule often works against your hormones and energy.</p></div>
+          <div class="slider-col"><div class="slider-col-title yellow">Yellow (4&ndash;6)</div><p>You have some structure, but inconsistent routines or late screens still disrupt sleep and recovery.</p></div>
+          <div class="slider-col"><div class="slider-col-title green">Green (7&ndash;10)</div><p>Your days follow a consistent rhythm &mdash; morning light, regular meals, wind-down evenings, predictable sleep.</p></div>
+        </div>
+        <input type="range" min="1" max="10" value="5" id="s6">
+        <div class="slider-value-row"><div class="slider-value-display" id="sv6">5</div><div class="slider-badge badge-yellow" id="sb6">In Transition</div></div>
+      </div>
+    </div>
+
+    <!-- LEVER 3 BANNER -->
+    <div class="lever-banner hidden" id="banner-l3">
+      <div class="lb-left">
+        <div class="lb-num">Lever 3</div>
+        <div class="lb-title">Movement &amp; Flow</div>
+      </div>
+      <div class="lb-div"></div>
+      <div class="lb-right">Shifting from Burdened &rarr; Free<br>Daily motion, clearance pathways, and recovery cycles.</div>
+    </div>
+
+    <!-- S7 -->
+    <div class="q-card hidden" id="step-10">
+      <div class="q-num">Section 7 of 9</div>
+      <div class="q-text">Daily Motion</div>
+      <div class="q-sub">How naturally movement is built into your daily life without relying on willpower or force.</div>
+      <div class="slider-wrap">
+        <div class="slider-cols">
+          <div class="slider-col"><div class="slider-col-title red">Red (1&ndash;3)</div><p>Movement feels forced, inconsistent, or absent from daily life.</p></div>
+          <div class="slider-col"><div class="slider-col-title yellow">Yellow (4&ndash;6)</div><p>You move intentionally but still rely on motivation or scheduled workouts to stay active.</p></div>
+          <div class="slider-col"><div class="slider-col-title green">Green (7&ndash;10)</div><p>Movement is woven naturally into your day and feels enjoyable &mdash; not forced.</p></div>
+        </div>
+        <input type="range" min="1" max="10" value="5" id="s7">
+        <div class="slider-value-row"><div class="slider-value-display" id="sv7">5</div><div class="slider-badge badge-yellow" id="sb7">In Transition</div></div>
+      </div>
+    </div>
+
+    <!-- S8 -->
+    <div class="q-card hidden" id="step-11">
+      <div class="q-num">Section 8 of 9</div>
+      <div class="q-text">Elimination &amp; Flow</div>
+      <div class="q-sub">How effectively your body clears waste and toxins through regular bowel movements and healthy lymphatic flow.</div>
+      <div class="slider-wrap">
+        <div class="slider-cols">
+          <div class="slider-col"><div class="slider-col-title red">Red (1&ndash;3)</div><p>Infrequent or difficult bowel movements, bloating, puffiness, fluid retention, or stagnation.</p></div>
+          <div class="slider-col"><div class="slider-col-title yellow">Yellow (4&ndash;6)</div><p>Some regularity, but inconsistency with digestion, bloating, or swelling.</p></div>
+          <div class="slider-col"><div class="slider-col-title green">Green (7&ndash;10)</div><p>Daily, easy elimination with minimal bloating, good circulation, and lightness in the body.</p></div>
+        </div>
+        <input type="range" min="1" max="10" value="5" id="s8">
+        <div class="slider-value-row"><div class="slider-value-display" id="sv8">5</div><div class="slider-badge badge-yellow" id="sb8">In Transition</div></div>
+      </div>
+    </div>
+
+    <!-- S9 -->
+    <div class="q-card hidden" id="step-12">
+      <div class="q-num">Section 9 of 9</div>
+      <div class="q-text">Rest &amp; Recovery</div>
+      <div class="q-sub">How well your sleep, breath, and nervous system allow your body to repair, reset, and restore.</div>
+      <div class="slider-wrap">
+        <div class="slider-cols">
+          <div class="slider-col"><div class="slider-col-title red">Red (1&ndash;3)</div><p>Sleep feels light, broken, or unrefreshing. You wake tired and rarely feel fully recovered.</p></div>
+          <div class="slider-col"><div class="slider-col-title yellow">Yellow (4&ndash;6)</div><p>Some nights feel restorative, but stress or nighttime waking still interrupts deep recovery.</p></div>
+          <div class="slider-col"><div class="slider-col-title green">Green (7&ndash;10)</div><p>You fall asleep easily, stay asleep most nights, and wake feeling rested and clear.</p></div>
+        </div>
+        <input type="range" min="1" max="10" value="5" id="s9">
+        <div class="slider-value-row"><div class="slider-value-display" id="sv9">5</div><div class="slider-badge badge-yellow" id="sb9">In Transition</div></div>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="nav-row" id="quiz-nav">
+      <button class="btn btn-ghost hidden" id="btn-back">&larr; Back</button>
+      <button class="btn btn-primary" id="btn-next" disabled>Continue &rarr;</button>
+    </div>
+  </div>
+
+  <!-- GATE -->
+  <div class="gate-card hidden" id="gate-section">
+    <h2>Your results are ready.</h2>
+    <p>Enter your details and we&rsquo;ll reveal your Metabolic Alignment Score across all three levers.</p>
+    <div class="gate-form">
+      <div class="form-row">
+        <input type="text" id="firstName" placeholder="First name">
+        <input type="text" id="lastName" placeholder="Last name">
+      </div>
+      <input type="email" id="email" placeholder="Email address">
+      <div class="phone-row">
+        <select id="countryCode"></select>
+        <input type="tel" id="phone" placeholder="Phone number">
+      </div>
+      <div class="err hidden" id="gate-err">Please fill in all fields to see your results.</div>
+      <button class="btn btn-primary" id="btn-show-results">Show My Results &rarr;</button>
+    </div>
+    <p class="gate-disclaimer">Your information is private and will never be shared. Unsubscribe any time.</p>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results-section" class="hidden">
+    <div class="results-header">
+      <div class="score-tag" id="res-tag"></div>
+      <h2>Your Metabolic Alignment Score</h2>
+      <div class="score-circle-wrap">
+        <div class="score-circle">
+          <div class="sc-label">TOTAL SCORE</div>
+          <div class="sc-num" id="res-score"></div>
+          <div class="sc-denom">/ 90</div>
+        </div>
+      </div>
+      <p class="score-message">This number is a snapshot in time &mdash; a map, not a judgement. Use this clarity to choose your next step.</p>
+    </div>
+
+    <div class="lever-result-card" id="lr1"></div>
+    <div class="lever-result-card" id="lr2"></div>
+    <div class="lever-result-card" id="lr3"></div>
+
+    <div class="cta-block">
+      <div class="cta-eyebrow">Your next step</div>
+      <h2 id="cta-headline"></h2>
+      <p id="cta-body"></p>
+      <div class="cta-discount">
+        <div class="price-line"><s>$299</s> &rarr; <strong>$99</strong></div>
+        <div class="code-line">Use code <span class="code-pill">QUIZ</span> at checkout &nbsp;&middot;&nbsp; Save $200</div>
+      </div>
+      <br>
+      <a href="https://go.thelivingproofinstitute.com/apply-dipa" target="_blank" rel="noopener noreferrer" class="btn-cta">Book My Discovery Call</a>
+      <p class="cta-reassurance">This is not a sales call. It is 60 minutes of real answers &mdash; personalised to you.</p>
+    </div>
+  </div>
+
+</div>
+<script type="text/javascript">
+(function(){
+var STEPS=[0,2,3,4,6,7,8,10,11,12];
+var stepIdx=0,scores={},hookAnswer=null;
+var LEVER_BANNERS={2:'banner-l1',3:'banner-l1',4:'banner-l1',6:'banner-l2',7:'banner-l2',8:'banner-l2',10:'banner-l3',11:'banner-l3',12:'banner-l3'};
+var SLIDER_MAP={2:1,3:2,4:3,6:4,7:5,8:6,10:7,11:8,12:9};
+var COUNTRIES=[
+  {code:'+1',flag:'🇺🇸',name:'US/Canada'},{code:'+44',flag:'🇬🇧',name:'UK'},{code:'+61',flag:'🇦🇺',name:'Australia'},
+  {code:'+64',flag:'🇳🇿',name:'New Zealand'},{code:'+353',flag:'🇮🇪',name:'Ireland'},{code:'+27',flag:'🇿🇦',name:'South Africa'},
+  {code:'+33',flag:'🇫🇷',name:'France'},{code:'+49',flag:'🇩🇪',name:'Germany'},{code:'+31',flag:'🇳🇱',name:'Netherlands'},
+  {code:'+34',flag:'🇪🇸',name:'Spain'},{code:'+39',flag:'🇮🇹',name:'Italy'},{code:'+41',flag:'🇨🇭',name:'Switzerland'},
+  {code:'+45',flag:'🇩🇰',name:'Denmark'},{code:'+46',flag:'🇸🇪',name:'Sweden'},{code:'+47',flag:'🇳🇴',name:'Norway'},
+  {code:'+48',flag:'🇵🇱',name:'Poland'},{code:'+52',flag:'🇲🇽',name:'Mexico'},{code:'+55',flag:'🇧🇷',name:'Brazil'},
+  {code:'+65',flag:'🇸🇬',name:'Singapore'},{code:'+91',flag:'🇮🇳',name:'India'},{code:'+971',flag:'🇦🇪',name:'UAE'},
+  {code:'+972',flag:'🇮🇱',name:'Israel'},{code:'+81',flag:'🇯🇵',name:'Japan'},{code:'+82',flag:'🇰🇷',name:'South Korea'},
+  {code:'+86',flag:'🇨🇳',name:'China'},{code:'+7',flag:'🇷🇺',name:'Russia'},{code:'+380',flag:'🇺🇦',name:'Ukraine'},
+  {code:'+966',flag:'🇸🇦',name:'Saudi Arabia'}
+];
+function populateCountryCodes(best){
+  var sel=document.getElementById('countryCode');
+  COUNTRIES.sort(function(a,b){return a.code===best?-1:b.code===best?1:0;});
+  COUNTRIES.forEach(function(c){
+    var o=document.createElement('option');
+    o.value=c.code;o.textContent=c.flag+' '+c.code+' '+c.name;
+    if(c.code===best)o.selected=true;sel.appendChild(o);
+  });
+}
+function detectCountry(){
+  fetch('https://ipapi.co/json/').then(function(r){return r.json();})
+  .then(function(d){populateCountryCodes(d.country_calling_code||'+1');})
+  .catch(function(){populateCountryCodes('+1');});
+}
+function sliderBg(v){
+  var p=((v-1)/9)*100,c=v<=3?'#E24B4A':v<=6?'#EF9F27':'#639922';
+  return 'linear-gradient(to right,'+c+' 0%,'+c+' '+p+'%,#E2D2C3 '+p+'%,#E2D2C3 100%)';
+}
+function updateSlider(s,v,b){
+  var el=document.getElementById(s),val=parseInt(el.value);
+  el.style.background=sliderBg(val);
+  document.getElementById(v).textContent=val;
+  var bd=document.getElementById(b);
+  if(val<=3){bd.textContent='Out of Alignment';bd.className='slider-badge badge-red';}
+  else if(val<=6){bd.textContent='In Transition';bd.className='slider-badge badge-yellow';}
+  else{bd.textContent='Embodied';bd.className='slider-badge badge-green';}
+}
+function initSliders(){for(var i=1;i<=9;i++){var e=document.getElementById('s'+i);if(e)e.style.background=sliderBg(5);}}
+function hideBanners(){['banner-l1','banner-l2','banner-l3'].forEach(function(id){document.getElementById(id).classList.add('hidden');});}
+function showStep(idx){
+  STEPS.forEach(function(s){document.getElementById('step-'+s).classList.add('hidden');});
+  document.getElementById('lbl-hook').classList.add('hidden');
+  hideBanners();
+  var n=STEPS[idx];
+  if(n===0)document.getElementById('lbl-hook').classList.remove('hidden');
+  document.getElementById('step-'+n).classList.remove('hidden');
+  if(LEVER_BANNERS[n])document.getElementById(LEVER_BANNERS[n]).classList.remove('hidden');
+  var back=document.getElementById('btn-back');
+  idx>0?back.classList.remove('hidden'):back.classList.add('hidden');
+  var next=document.getElementById('btn-next');
+  next.disabled=(n===0&&!hookAnswer);
+  next.innerHTML=idx===STEPS.length-1?'See My Results &rarr;':'Continue &rarr;';
+  var pct=Math.round((idx/(STEPS.length-1))*100);
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-pct').textContent=pct+'%';
+  var sn=SLIDER_MAP[n];
+  document.getElementById('progress-text').textContent=n===0?'Opening question':'Section '+sn+' of 9';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function nextStep(){
+  var n=STEPS[stepIdx];
+  if(n===0&&!hookAnswer)return;
+  var sn=SLIDER_MAP[n];if(sn)scores[sn]=parseInt(document.getElementById('s'+sn).value);
+  if(stepIdx===STEPS.length-1){showGate();return;}
+  stepIdx = stepIdx + 1;showStep(stepIdx);
+}
+function prevStep(){if(stepIdx>0){stepIdx = stepIdx - 1;showStep(stepIdx);}}
+function showGate(){
+  document.getElementById('quiz-header').classList.add('hidden');
+  document.getElementById('progress-wrap').classList.add('hidden');
+  document.getElementById('quiz-section').classList.add('hidden');
+  document.getElementById('gate-section').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function getColor(v,m){var p=v/m;return p<=0.33?'red':p<=0.66?'yellow':'green';}
+function leverInsight(lev,col){
+  var ins={
+    1:{red:'Your sense of identity around health is still running old programmes. How you see yourself directly drives how you treat yourself -- and right now, the gap is wide. This is where the deepest work begins.',
+       yellow:'You have awareness and some support, but consistency is missing. You\'re questioning the old story -- that is the most important first step. Now it\'s about closing the gap between awareness and embodiment.',
+       green:'Your identity, community, and data use are largely aligned. Precision testing could now reveal the final layer that makes everything click.'},
+    2:{red:'What you\'re consuming -- food, stress, light, timing -- is adding to your inflammatory load rather than restoring it. Your body is reactive, not nourished.',
+       yellow:'You\'re making better choices but they\'re not yet consistent enough to shift your biology. Small gaps in nourishment and nervous system protection are keeping your body in alert mode.',
+       green:'Your consumption habits are largely supporting your biology. DNA and inflammation testing could reveal the final adjustments that make the biggest difference.'},
+    3:{red:'Movement, elimination, and recovery are all asking for attention. Your body is burdened and not clearing or restoring efficiently. This is biology asking for help.',
+       yellow:'Energy is moving through your body, but not freely. Recovery and elimination are inconsistent. When matched to your nervous system state, everything becomes easier.',
+       green:'Your movement, flow, and recovery are working with your biology. Matching movement to your daily HRV data could take it from habitual to truly restorative.'}
+  };
+  return ins[lev][col];
+}
+function renderLeverCard(id,title,shift,subs,total,max,color){
+  var pct=Math.round((total/max)*100);
+  var fC='fill-'+color,bC=color==='red'?'badge-red':color==='yellow'?'badge-yellow':'badge-green';
+  var bT=color==='red'?'Out of Alignment':color==='yellow'?'In Transition':'Embodied';
+  var sh=subs.map(function(s){return '<div class="sub-score-item"><div class="sub-score-name">'+s.name+'</div><div class="sub-score-val">'+s.val+'<span class="sub-score-denom">/10</span></div></div>';}).join('');
+  document.getElementById(id).innerHTML=
+    '<div class="lr-header"><div><div class="lr-title">'+title+'</div><div class="lr-shift">'+shift+'</div></div>'+
+    '<div style="text-align:right"><div class="lr-score">'+total+'/'+max+'</div><div class="slider-badge '+bC+'" style="display:inline-block;margin-top:5px;">'+bT+'</div></div></div>'+
+    '<div class="lr-bar"><div class="lr-fill '+fC+'" style="width:0%" id="'+id+'fill"></div></div>'+
+    '<div class="sub-scores">'+sh+'</div>'+
+    '<p class="lr-insight">'+leverInsight(parseInt(id.replace('lr','')),color)+'</p>';
+  setTimeout(function(){var f=document.getElementById(id+'fill');if(f)f.style.width=pct+'%';},200);
+}
+function showResults(){
+  var fn=document.getElementById('firstName').value.trim();
+  var ln=document.getElementById('lastName').value.trim();
+  var em=document.getElementById('email').value.trim();
+  var ph=document.getElementById('phone').value.trim();
+  if(!fn||!ln||!em||!ph){document.getElementById('gate-err').classList.remove('hidden');return;}
+  document.getElementById('gate-err').classList.add('hidden');
+  document.getElementById('gate-section').classList.add('hidden');
+  document.getElementById('results-section').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+  var l1=(scores[1]||5)+(scores[2]||5)+(scores[3]||5);
+  var l2=(scores[4]||5)+(scores[5]||5)+(scores[6]||5);
+  var l3=(scores[7]||5)+(scores[8]||5)+(scores[9]||5);
+  var total=l1+l2+l3,isBelly=hookAnswer==='belly';
+  document.getElementById('res-score').textContent=total;
+  var tag=document.getElementById('res-tag'),cth=document.getElementById('cta-headline'),ctb=document.getElementById('cta-body');
+  if(total<=30){tag.textContent='Out of Alignment \u2014 Red';tag.className='score-tag tag-red';
+    cth.textContent='You need a real roadmap \u2014 not another protocol.';
+    ctb.textContent='A Discovery Call with Dipa is 60 minutes built entirely around you \u2014 your results, your history, your biology. You will leave with a clear picture of what your body needs and why nothing has worked until now.';}
+  else if(total<=63){tag.textContent='In Transition \u2014 Yellow';tag.className='score-tag tag-yellow';
+    cth.textContent='You\u2019re close. Precision is what gets you the rest of the way.';
+    ctb.textContent='A Discovery Call will show you exactly which lever is holding you back and what your specific biology needs to shift from inconsistent to embodied.';}
+  else{tag.textContent='Embodied \u2014 Green';tag.className='score-tag tag-green';
+    cth.textContent='Go from doing well to knowing exactly why \u2014 and what\u2019s next.';
+    ctb.textContent='A Discovery Call with Dipa is where precision begins. We look at your actual biology \u2014 DNA, inflammation, nervous system data \u2014 and map what your body needs at this specific stage.';}
+  var c1=getColor(l1,30),c2=getColor(l2,30),c3=getColor(l3,30);
+  renderLeverCard('lr1','Lever 1: Identity','Trapped \u2192 Self-Expressed',[{name:'Self-Image',val:scores[1]||5},{name:'Community',val:scores[2]||5},{name:'Precision Testing',val:scores[3]||5}],l1,30,c1);
+  renderLeverCard('lr2','Lever 2: Fuel & Consumption','Unhealthy \u2192 Healthy',[{name:'Nourishment',val:scores[4]||5},{name:'Nervous System',val:scores[5]||5},{name:'Rhythm & Timing',val:scores[6]||5}],l2,30,c2);
+  renderLeverCard('lr3','Lever 3: Movement & Flow','Burdened \u2192 Free',[{name:'Daily Motion',val:scores[7]||5},{name:'Elimination',val:scores[8]||5},{name:'Rest & Recovery',val:scores[9]||5}],l3,30,c3);
+  if(isBelly&&total<=63){
+    var flag=document.createElement('div');
+    flag.style.cssText='border-left:3px solid #E2725B;padding:14px 18px;background:#FAECE7;border-radius:0 8px 8px 0;font-family:PT Serif,serif;font-size:15px;color:#712B13;line-height:1.65;margin-bottom:14px;';
+    flag.innerHTML='<strong style="color:#4A1B0C;font-family:Marcellus,serif;">Your weight pattern confirms this.</strong> Belly and waist weight that won\u2019t move despite effort is the clearest sign of elevated cortisol. Your Nervous System and Rhythm scores are the levers to prioritise first.';
+    document.getElementById('lr2').insertAdjacentElement('beforebegin',flag);
+  }
+}
+function selectOption(opt){
+  document.querySelectorAll('#step-0 .option').forEach(function(o){o.classList.remove('selected');});
+  opt.classList.add('selected');
+  hookAnswer=opt.getAttribute('data-value');
+  document.getElementById('btn-next').disabled=false;
+}
+function initQuiz(){
+  // Use event delegation on the container — one listener, catches all clicks
+  var hookContainer = document.getElementById('step-0');
+  if(hookContainer){
+    hookContainer.addEventListener('click', function(e){
+      var opt = e.target;
+      while(opt && opt !== hookContainer){
+        if(opt.classList && opt.classList.contains('option')){ selectOption(opt); return; }
+        opt = opt.parentElement;
+      }
+    });
+  }
+  // Slider listeners
+  for(var i=1;i<=9;i++){
+    (function(n){
+      var el=document.getElementById('s'+n);
+      if(el) el.addEventListener('input',function(){updateSlider('s'+n,'sv'+n,'sb'+n);});
+    })(i);
+  }
+  // Button listeners
+  document.getElementById('btn-back').addEventListener('click', prevStep);
+  document.getElementById('btn-next').addEventListener('click', nextStep);
+  document.getElementById('btn-show-results').addEventListener('click', showResults);
+  // Init
+  detectCountry();
+  initSliders();
+  document.getElementById('progress-wrap').classList.remove('hidden');
+  showStep(0);
+}
+// Triple-safe init: works standalone, in WordPress, and with jQuery
+var _quizInited = false;
+function _safeInitQuiz() {
+  if (_quizInited) return;
+  _quizInited = true;
+  initQuiz();
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', _safeInitQuiz);
+} else {
+  _safeInitQuiz();
+}
+if (typeof jQuery !== 'undefined') {
+  jQuery(document).ready(_safeInitQuiz);
+} else {
+  window.addEventListener('load', _safeInitQuiz);
+}
+})(); // end IIFE
+</script>
+</body>
+</html>
